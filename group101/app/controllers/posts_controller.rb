@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   def update
     @post = @group.posts.find(params[:id])
 
-    if @post.save
+    if @post.update(post_params)
       redirect_to group_path(@group), :notice => "文章修改成功"
     else
       render :edit
